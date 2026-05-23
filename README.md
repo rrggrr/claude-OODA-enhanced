@@ -155,3 +155,9 @@ F3EAD doctrine derived from U.S. Army Special Operations targeting cycle documen
 ---
 
 *These skills were built for [Claude Code](https://claude.ai/code). Drop the skill directories into `~/.claude/skills/`. They load automatically.*
+
+---
+
+## About
+
+**Russ Ross** — a linear guy surfing a geometric AI wave.
