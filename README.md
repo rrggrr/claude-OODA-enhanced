@@ -3,6 +3,8 @@
 > *"He who can handle the quickest rate of change survives."*
 > — Col. John R. Boyd, USAF
 
+![OODA Loop — Observe & Orient](ooda_loop.jpg)
+
 ---
 
 ## Orientation
