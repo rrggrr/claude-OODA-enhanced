@@ -125,7 +125,13 @@ that could prove you wrong.
 This is the decisive phase. Goal: form the truest-possible picture *and* expose
 where your own picture is most likely fooling you.
 
-Do these, in roughly this order:
+Do these, in roughly this order — but first, before evaluating any hypothesis:
+
+- **Write what would change your conclusion.** Before you look at competing
+  hypotheses or weigh evidence, write one sentence: "I would conclude the
+  opposite if ___." If Orient closes without addressing that sentence, the
+  orientation is incomplete. A falsifier written after the evidence is in is
+  not a falsifier — it's a rationalization.
 
 - **Name your current orientation out loud.** What story are you telling about
   this situation? What does that story assume? Boyd's point is that this model is
@@ -141,6 +147,12 @@ Do these, in roughly this order:
 - **Red-team your own view.** What would a sharp opponent, or your most skeptical
   colleague, attack first? If there's a real adversary or competitor, model
   *their* orientation: what do they believe, and where is it wrong or slow?
+- **Steelman the option you're leaning away from.** Before concluding, write
+  the strongest possible case for the choice you are currently not favoring.
+  Not a strawman — the actual best version of the opposing argument. Red-teaming
+  attacks your view from outside; this step forces you to *inhabit* the other
+  side. If you can't write it, you don't understand the tradeoff well enough
+  to decide.
 - **Update like a Bayesian.** Treat new information as evidence that should move
   you, and be honest about evidence that cuts against your favored story
   ("incestuous amplification" — only listening to what confirms you — is Boyd's
@@ -232,6 +244,13 @@ biased or outdated orientation, produces confident, fast, wrong action. Rule of
 thumb: trust implicit guidance in familiar, stable, low-stakes situations; force
 explicit orientation and decision when the situation is novel, the stakes are
 high, or you notice your predictions have been off lately.
+
+One additional trigger: if Orient produces a conclusion that conveniently
+confirms something you already built, already paid for, or already recommended
+— treat that as a yellow flag. Not proof of error, but reason to require one
+concrete piece of evidence pointing the other way before closing the loop. The
+trap of implicit guidance is not just a stale mental model; it's a mental model
+shaped by your own prior investment.
 
 ## Team OODA — parallel loops with model tiers
 
