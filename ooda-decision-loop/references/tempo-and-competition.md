@@ -1,7 +1,7 @@
 # Tempo and Competition: Operating Inside the Other Loop
 
 This is the part of OODA that gets quoted most and understood least. Boyd's aim
-was never "decide faster." It was to **generate mismatches** — to make the
+was never "decide faster." It was to **generate mismatches** - to make the
 adversary's picture of reality progressively wrong until they collapse into
 confusion, hesitation, and self-generated disorder. Read this for any problem with
 a competitor, opponent, negotiation counterpart, or fast-moving market.
@@ -9,7 +9,7 @@ a competitor, opponent, negotiation counterpart, or fast-moving market.
 ## What "getting inside their loop" actually means
 
 You are inside an opponent's loop when **the situation changes faster than they can
-re-orient to it.** They observe, build a picture, start to decide — and by the time
+re-orient to it.** They observe, build a picture, start to decide - and by the time
 they act, the world you've created has already moved on, so their action is aimed
 at a situation that no longer exists. Do this repeatedly and the opponent stops
 trusting their own read, starts second-guessing, freezes, or thrashes. The target
@@ -43,8 +43,8 @@ credibility doing it. Consequences:
 
 - **When you're behind on orientation, slow down.** Gather, re-orient, then
   re-engage. Acting fast from confusion is how you get folded into your *own* loop.
-- **Tempo can mean variety, not just rate.** Unpredictability — changing rhythm,
-  mixing fast and slow, feinting — degrades the opponent's ability to anticipate
+- **Tempo can mean variety, not just rate.** Unpredictability - changing rhythm,
+  mixing fast and slow, feinting - degrades the opponent's ability to anticipate
   even if your average speed isn't high. A metronome is easy to get inside of.
 - **Sometimes the best move is to wait** until conditions make your action
   decisive. Patience that sets up a better transient beats a hasty average move.
@@ -55,15 +55,15 @@ anything. Tempo is a means; mismatch is the end.
 
 ## Defending your own orientation
 
-The same logic runs in reverse — opponents will try to get inside *your* loop.
+The same logic runs in reverse - opponents will try to get inside *your* loop.
 Protect orientation by:
 
 - **Keeping observation fresh and wide** so surprises arrive early, not late.
 - **Pre-deciding triggers** ("if X happens, we do Y") so you don't have to
-  deliberate under pressure — this is implicit guidance, deliberately installed.
+  deliberate under pressure - this is implicit guidance, deliberately installed.
 - **Holding reserves / option value** so a surprise doesn't force an immediate
   irreversible commitment.
-- **Watching for your own folding-inward** — when you start spending more energy on
+- **Watching for your own folding-inward** - when you start spending more energy on
   internal debate than on the external situation, you're losing the tempo battle.
 
 ## Organizational tempo: why shared orientation wins
@@ -80,7 +80,7 @@ intent. The enablers (his German maneuver-warfare vocabulary):
 - **Focus of effort (Schwerpunkt):** a shared sense of what matters most right now,
   so independent fast actions still point the same way instead of scattering.
 - **Intuitive feel (Fingerspitzengefühl):** the implicit-guidance shortcut at team
-  scale — earned through shared experience and training.
+  scale - earned through shared experience and training.
 
 The practical takeaway for any team: if you want to out-tempo a competitor, invest
 in shared context and trust *before* the crisis, so that when it hits, people can

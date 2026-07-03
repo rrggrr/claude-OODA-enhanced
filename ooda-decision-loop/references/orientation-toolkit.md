@@ -2,7 +2,7 @@
 
 The Orient phase is where decisions are won or lost, so it deserves real tools.
 Each tool below counters a specific way orientation goes wrong. You don't need all
-of them every time — pick the ones that fit the failure mode you're most worried
+of them every time - pick the ones that fit the failure mode you're most worried
 about. A good default for a high-stakes call: competing hypotheses + premortem +
 "most dangerous assumption."
 
@@ -24,12 +24,12 @@ You cannot inspect a model you can't see. Before analyzing, write one sentence:
 "My current read is that ___, which assumes ___." Boyd's insight is that this read
 is silently shaped by five things, each a possible source of error:
 
-- **Inherited instincts / temperament** — e.g. loss aversion, status-quo bias.
-- **Culture and incentives** — what your org rewards, what "people like us" do.
-- **Prior experience** — pattern-matching to the last similar situation, which may
+- **Inherited instincts / temperament** - e.g. loss aversion, status-quo bias.
+- **Culture and incentives** - what your org rewards, what "people like us" do.
+- **Prior experience** - pattern-matching to the last similar situation, which may
   not actually be similar.
-- **The new information at hand** — which may be partial, stale, or cherry-picked.
-- **Your analysis and synthesis** — the reasoning you layer on top.
+- **The new information at hand** - which may be partial, stale, or cherry-picked.
+- **Your analysis and synthesis** - the reasoning you layer on top.
 
 For each, ask: *is this helping me see, or making me see what I expect?* The act
 of attribution ("I'm reading it this way because the last outage was a deploy, so
@@ -41,10 +41,10 @@ The single highest-leverage debiasing move, because it attacks confirmation bias
 structurally.
 
 1. Brainstorm **3+ genuinely different** explanations/courses of action. The bar:
-   each should be defensible by a smart person — no strawmen.
+   each should be defensible by a smart person - no strawmen.
 2. List the key pieces of evidence and the major assumptions.
 3. For each evidence item, mark which hypotheses it's *consistent* with. Crucially,
-   look for evidence that is **inconsistent** with a hypothesis — disconfirmation
+   look for evidence that is **inconsistent** with a hypothesis - disconfirmation
    is far more diagnostic than confirmation.
 4. The strongest hypothesis is the one with the *fewest* inconsistencies, not the
    most supporting points (lots of evidence is consistent with several stories).
@@ -52,7 +52,7 @@ structurally.
    top two hypotheses. That's usually your next action.
 
 Anti-pattern: generating one real hypothesis plus decoys. If two of your three
-hypotheses feel obviously dumb, you haven't done ACH — you've rationalized.
+hypotheses feel obviously dumb, you haven't done ACH - you've rationalized.
 
 ## 3. The premortem
 
@@ -71,7 +71,7 @@ Prospective hindsight. Imagine the decision has already failed, then explain why
 - **Self red-team:** "If I wanted to tear this plan apart, where would I strike
   first?" Attack your own strongest assumption.
 - **Opponent modeling (if there's an adversary/competitor):** build *their* OODA
-  loop. What do they observe? What's their orientation — their incentives,
+  loop. What do they observe? What's their orientation - their incentives,
   constraints, blind spots, recent commitments they're anchored to? What will they
   predict you'll do? Their orientation is something you can exploit (see
   `tempo-and-competition.md`).
@@ -83,12 +83,12 @@ Prospective hindsight. Imagine the decision has already failed, then explain why
 - Treat each new fact as evidence that should *move* your confidence, not as a
   trophy for the view you already hold. Ask: "How surprised am I by this? Which
   hypothesis predicted it best?"
-- The named failure: **incestuous amplification** — a closed conversation where
+- The named failure: **incestuous amplification** - a closed conversation where
   people only circulate confirming information, and confidence rises while
   accuracy doesn't. Counter it by deliberately seeking the best disconfirming
   evidence and by giving a dissenter explicit air cover.
 - Practical tic: keep a short list of "things that would change my mind." If
-  nothing could, you're not oriented — you're committed.
+  nothing could, you're not oriented - you're committed.
 
 ## 6. Destruction and creation (rebuilding a stuck model)
 
@@ -98,7 +98,7 @@ is a deliberate teardown-and-rebuild:
 
 1. **Destruction (analysis):** break the situation into its constituent parts.
    Question each part on its own. Discard the frame that's holding them together.
-2. **Creation (synthesis):** recombine the parts into a *new* whole — ideally
+2. **Creation (synthesis):** recombine the parts into a *new* whole - ideally
    importing structure from an unrelated domain. (Boyd's illustration: combine
    skis, an outboard motor, a bicycle chain, and tank treads → a snowmobile.
    None of the source domains "owns" the answer.)
@@ -107,7 +107,7 @@ is a deliberate teardown-and-rebuild:
    way?"
 
 Use this when you're stuck, when everyone agrees too easily, or when the obvious
-options all feel bad — those are signs the *frame*, not the options, is the
+options all feel bad - those are signs the *frame*, not the options, is the
 problem.
 
 ## 7. The Cynefin situation-match (which loop to run)
@@ -117,17 +117,17 @@ Cynefin). Using the wrong style is a common, expensive error.
 
 | Domain | Cause/effect | Right move | OODA flavor |
 |---|---|---|---|
-| **Clear** | Obvious, known | Apply best practice | Barely any loop — just act |
+| **Clear** | Obvious, known | Apply best practice | Barely any loop - just act |
 | **Complicated** | Knowable with analysis/expertise | Analyze, get experts, then act | Deliberate Orient, explicit Decide |
-| **Complex** | Only clear in hindsight | Run small safe-to-fail probes; amplify what works | **Multiple parallel loops** — probe, sense, respond; don't over-plan |
+| **Complex** | Only clear in hindsight | Run small safe-to-fail probes; amplify what works | **Multiple parallel loops** - probe, sense, respond; don't over-plan |
 | **Chaotic** | No discernible cause/effect | Act now to establish stability, then re-orient | Act → Observe first; impose order before analyzing |
 | **Confused/Aporetic** | You don't know which domain | Break the problem into parts and place each | Orient on "where am I?" first |
 
-(The fifth row — *Confused/Aporetic* — is Snowden's post-2020 rename of the older
+(The fifth row - *Confused/Aporetic* - is Snowden's post-2020 rename of the older
 "Disorder" domain: the state of not yet knowing which domain you're in. If you've
 only seen the classic four-domain Cynefin, this is the same idea.)
 
-Two cautions: (1) In **complex** domains, don't run one big loop — run several
+Two cautions: (1) In **complex** domains, don't run one big loop - run several
 small experiments at once and let a higher-level loop learn across them. (2) The
 dangerous transition is **Clear → Chaotic**: complacency ("we've got this") makes
 you stop observing, and you fall off a cliff you didn't see.

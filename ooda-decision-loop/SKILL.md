@@ -2,15 +2,16 @@
 name: ooda-decision-loop
 description: >-
   A rigorous decision and problem-solving framework based on John Boyd's real
-  OODA loop (Observe–Orient–Decide–Act) — the version where Orientation dominates
+  OODA loop (Observe–Orient–Decide–Act) - the version where Orientation dominates
   and tempo means creating mismatches, not just moving fast. Use it for any hard,
   ambiguous, or high-stakes decision; a confusing situation that needs
   sense-making before acting; strategy or moves under uncertainty; a competitive
   or adversarial situation; an unfolding incident or crisis; a stuck or stalled
   problem; or a decision that already went wrong and needs a post-mortem. Reach
-  for it even when the user never says "OODA" or "framework" — if the ask is
+  for it even when the user never says "OODA" or "framework" - if the ask is
   "help me decide," "figure out what's going on," "what's our move," "we're
-  stuck," "pressure-test this plan," or "why did this go sideways," this applies.
+  stuck," "pressure-test this plan," "what am I not seeing," "find the
+  non-obvious," or "why did this go sideways," this applies.
   Especially valuable when the situation keeps changing while you decide, when a
   wrong mental model would be costly, or when a faster, better decision cycle is
   a competitive edge.
@@ -18,40 +19,54 @@ description: >-
 
 # The OODA Decision Loop
 
-A reusable engine for thinking and acting well under uncertainty — adapted
+A reusable engine for thinking and acting well under uncertainty - adapted
 faithfully from USAF Colonel John Boyd's work, not the airport-bookshop cartoon.
 
-## Loop control — do this first, every time
+## Loop control - self-paced, do this first
 
-Before running the loop, **always ask the user:**
+Set the loop budget yourself from stakes and reversibility. Do not stop to ask
+permission to think: an approval gate on loop count is the "hierarchical
+approval" speed killer (see the table below) applied to yourself. If the user
+named a loop count, honor it; otherwise pick and state your budget:
 
-> "How many OODA loops should I run? (default: 2)"
+| Situation | Budget |
+|---|---|
+| Familiar territory, reversible move | 1 loop, fast mode |
+| Ambiguous, or the situation changes while you decide | 2 loops (default) |
+| Adversarial, high-stakes, or irreversible | 3+ - loop to convergence |
 
-Wait for the answer (or proceed with 2 if the user says "default" or doesn't
-specify). Then run exactly that many full Observe → Orient → Decide → Act cycles.
+**Stop looping when any of these is true** (say which one closed the loop):
+
+- **Converged:** the last loop changed no assumption, no hypothesis ranking,
+  and not the chosen move.
+- **Falsifier resolved:** the named falsifier was tested and the orientation
+  survived - or died, in which case re-plan, don't just re-loop.
+- **A marginal loop can't matter:** another cycle cannot change the action
+  before its deadline.
+- **Budget or deadline hit:** stop and report residual unknowns explicitly
+  rather than stopping silently.
 
 **Iteration header.** Open each loop with a one-line banner:
 
 ```
-━━━ LOOP N / TOTAL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ LOOP N / BUDGET ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 **Re-orientation is mandatory on every loop after the first.** Loop 2+ must not
-be a repeat. Before entering Observe, explicitly carry forward from the previous
-loop:
+be a repeat. Open it with a four-slot **loop ledger** carried from the previous
+loop - one line per slot:
 
-- **What changed.** The concrete result of the Act step — new facts, outputs,
-  errors, signals.
-- **What was wrong in the prior orientation.** Name the assumption or model that
-  reality disproved or confirmed.
-- **Updated unknowns.** The gaps that survived (or newly appeared). Cheap to
-  check now? Check them before Observing again.
-- **Next Find.** If ooda-find-fix-finish ran in Act, pick up the next target it
-  surfaced in its EAD output.
+```
+LEDGER  changed:   <what Act altered - new facts, outputs, errors, reactions>
+        disproved: <the assumption or model reality killed (or confirmed)>
+        unknowns:  <gaps that survived or newly appeared - check cheap ones now>
+        next find: <the target the last loop surfaced (EAD output, if
+                    ooda-find-fix-finish ran in Act)>
+```
 
-A loop that does not update orientation is not a loop — it's a repeated action.
+A loop that does not update orientation is not a loop - it's a repeated action.
 Boyd's whole point is that each cycle should leave you more accurately oriented
-than before; if the orientation didn't change, skip the loop and just act again.
+than before; if the ledger is empty, skip the loop and just act again.
 
 ## The one idea that makes this skill worth using
 
@@ -59,16 +74,16 @@ Most people treat OODA as a four-step checklist: look, think, choose, do, repeat
 faster. That is the part Boyd spent the *least* time on. The real loop has three
 properties that change how you use it:
 
-1. **Orientation dominates.** The second O — your mental model of the situation,
+1. **Orientation dominates.** The second O - your mental model of the situation,
    shaped by your background, assumptions, prior experience, and the analysis you
-   do — silently determines what you even notice, which options occur to you, and
+   do - silently determines what you even notice, which options occur to you, and
    how you act. Most bad decisions are not bad *choices*; they are good choices
    inside a wrong orientation. So this framework spends most of its energy on
    getting orientation right, and on *suspecting your own orientation first*.
 
 2. **The goal of tempo is mismatch, not speed.** "Operating inside someone's OODA
    loop" does not mean rushing. It means acting in a way that makes the other
-   party's picture of reality wrong — generating confusion, hesitation, and
+   party's picture of reality wrong - generating confusion, hesitation, and
    wasted effort on their side faster than they can correct. Sometimes that means
    moving fast; sometimes it means waiting, feinting, or changing the terms so
    their existing plan no longer fits. Speed for its own sake is a trap.
@@ -76,7 +91,7 @@ properties that change how you use it:
 3. **It's a learning loop, not a pipeline.** Boyd labeled "Decide" as
    *Hypothesis* and "Act" as *Test*. You are running experiments against reality
    and updating, not executing a plan. Skilled operators often skip the explicit
-   Decide step entirely (this is "implicit guidance" — see below). The point of
+   Decide step entirely (this is "implicit guidance" - see below). The point of
    the loop is to keep your orientation matched to a world that won't hold still.
 
 If you remember nothing else: **fix your orientation, then act in a way that
@@ -84,7 +99,7 @@ breaks theirs.**
 
 ## When to use this, and when not to
 
-Use it for genuinely uncertain, consequential, or fast-moving problems — strategy,
+Use it for genuinely uncertain, consequential, or fast-moving problems - strategy,
 competitive moves, incidents, ambiguous diagnoses, "we're stuck," and decision
 post-mortems.
 
@@ -92,7 +107,29 @@ Don't force it on **clear, well-understood tasks** with a known right answer
 (just do the known-good procedure), or on problems whose only difficulty is
 computation or fact-lookup. If the situation is *clear*, OODA collapses to "act."
 The framework earns its keep precisely when the situation is complicated,
-complex, or chaotic — see the Cynefin match in `references/orientation-toolkit.md`.
+complex, or chaotic - see the Cynefin match in `references/orientation-toolkit.md`.
+
+## Agent tempo - parallel by default
+
+You are not a fighter pilot reading one instrument at a time. Run the loop at
+machine speed:
+
+- **Batch Observe.** Name the top 3-5 unknowns first, then issue every
+  independent read, search, query, and probe in a single parallel batch - never
+  serially. For wide sweeps, fan out subagents (one per source or per unknown)
+  and keep the integration pass for yourself.
+- **Gather to discriminate, not to accumulate.** Rank pending checks by how much
+  the answer would change the decision, divided by cost. The most valuable
+  observation is the one that separates two live hypotheses; one more
+  confirmation of the leading story is the least valuable.
+- **Pre-stage Decide inside Orient.** Carry the top two candidate moves while
+  orienting, so Decide is a selection between staged options, not a construction
+  from scratch.
+- **Probe while orienting.** Cheap reversible actions are sensors. In complex
+  situations, launch the probe before orientation is complete and let the result
+  land inside the same loop, instead of finishing analysis and then testing.
+- **Time-box every phase.** Set the box when you enter the phase; when it
+  expires, move with what you have and log the residual unknown in the ledger.
 
 ## How to run the loop
 
@@ -100,7 +137,7 @@ Work through the four phases below, but treat them as a system with feedback, no
 a to-do list. The heavy lifting is in Orient. Adjust depth to the stakes: a
 two-minute pass for a small call, a full written pass for a big one.
 
-### 1. Observe — get current, honest inputs
+### 1. Observe - get current, honest inputs
 
 Goal: assemble what's actually happening, right now, including the things that
 contradict your current story.
@@ -112,50 +149,58 @@ contradict your current story.
   feedback from your last Act lands here).
 - Flag **freshness and gaps**: which observations are stale, secondhand, or
   assumed? What would you *most* want to know that you don't? Cheap observation
-  beats expensive guessing — note what's quick to go check.
+  beats expensive guessing - note what's quick to go check.
 - Watch for the **expectation gap**: where is reality diverging from what you
   predicted? That gap is the most information-rich thing on the table.
+- **Sort by surprise.** Report observations in order of how much they deviate
+  from what you expected, not in the order you found them. The anomaly outranks
+  the summary statistic.
+- **Scan the negative space.** List 2-3 things you would expect to see if the
+  standard story were true - then check whether they are actually there. The
+  absent signal (the complaint no one filed, the error that never fired, the
+  stakeholder who went quiet) is routinely the highest-information observation
+  available and the easiest to miss.
 
-Observation is cheap and being wrong here is recoverable — so err toward
+Observation is cheap and being wrong here is recoverable - so err toward
 gathering one more real data point before you commit, especially the data point
 that could prove you wrong.
 
-### 2. Orient — build (and distrust) the mental model
+### 2. Orient - build (and distrust) the mental model
 
 This is the decisive phase. Goal: form the truest-possible picture *and* expose
 where your own picture is most likely fooling you.
 
-Do these, in roughly this order — but first, before evaluating any hypothesis:
+Do these, in roughly this order - but first, before evaluating any hypothesis:
 
 - **Write what would change your conclusion.** Before you look at competing
   hypotheses or weigh evidence, write one sentence: "I would conclude the
   opposite if ___." If Orient closes without addressing that sentence, the
   orientation is incomplete. A falsifier written after the evidence is in is
-  not a falsifier — it's a rationalization.
+  not a falsifier - it's a rationalization.
 
 - **Name your current orientation out loud.** What story are you telling about
   this situation? What does that story assume? Boyd's point is that this model is
   shaped by your background, your culture/incentives, your prior experience, the
-  new information at hand, and the analysis you do — and any of those can mislead.
+  new information at hand, and the analysis you do - and any of those can mislead.
   Saying it explicitly is what lets you inspect it.
 - **Generate competing hypotheses (at least three).** Force a few genuinely
-  different explanations of what's going on — not one explanation plus two
+  different explanations of what's going on - not one explanation plus two
   strawmen. Then ask which evidence would *distinguish* them. (Analysis of
   Competing Hypotheses; details in the toolkit reference.)
-- **Run a fast premortem.** "It's three months from now and this went badly —
+- **Run a fast premortem.** "It's three months from now and this went badly -
   why?" Premortems surface the failure modes your optimism is hiding.
 - **Red-team your own view.** What would a sharp opponent, or your most skeptical
   colleague, attack first? If there's a real adversary or competitor, model
   *their* orientation: what do they believe, and where is it wrong or slow?
 - **Steelman the option you're leaning away from.** Before concluding, write
   the strongest possible case for the choice you are currently not favoring.
-  Not a strawman — the actual best version of the opposing argument. Red-teaming
+  Not a strawman - the actual best version of the opposing argument. Red-teaming
   attacks your view from outside; this step forces you to *inhabit* the other
   side. If you can't write it, you don't understand the tradeoff well enough
   to decide.
 - **Update like a Bayesian.** Treat new information as evidence that should move
   you, and be honest about evidence that cuts against your favored story
-  ("incestuous amplification" — only listening to what confirms you — is Boyd's
+  ("incestuous amplification" - only listening to what confirms you - is Boyd's
   named failure mode).
 - **Match the situation type (Cynefin).** Clear → just apply best practice.
   Complicated → analyze / get an expert. Complex → run small safe-to-fail probes
@@ -165,15 +210,34 @@ Do these, in roughly this order — but first, before evaluating any hypothesis:
   creation"): break the situation into pieces and recombine them a different way,
   borrowing structure from an unrelated domain. The toolkit reference has a
   procedure for this.
+- **Run the non-obvious battery.** The tools above find the truest story; these
+  seven probes find what everyone else misses. Run them fast - one line each -
+  and chase only the ones that snag:
 
-Output of this phase: a current best read, the top one or two uncertainties that
-would change your mind, and an explicit note of *the single assumption most
-dangerous to be wrong about*.
+| Probe | The question it forces |
+|---|---|
+| **Negative space** | What is missing that the leading story predicts should be here? |
+| **Outside view** | Ignoring the specifics, what happens to most cases of this class (the base rate)? |
+| **Inversion** | Assume the favored conclusion is wrong. What evidence would you now expect, and where? |
+| **Second-order** | If the obvious move is made, who reacts - and what breaks one step later? |
+| **Incentive scan** | Who benefits from the current story being believed? Whose reporting has a thumb on the scale? |
+| **Constraint flip** | Which "fixed" constraint is actually someone's past choice, and revocable? |
+| **Timeline anomaly** | What changed just before the problem started - and what changed that should have had an effect but didn't? |
+
+  Full mechanics and worked examples: `references/non-obvious-toolkit.md`.
+
+Output of this phase: a current best read; the top one or two uncertainties that
+would change your mind; an explicit note of *the single assumption most
+dangerous to be wrong about*; and **findings ranked by impact times confidence,
+not by discovery order**. Orient is not done until it has surfaced at least one
+finding that contradicts or complicates the initial framing - if the battery
+produced none, say so explicitly rather than skipping it (a clean battery is
+information too).
 
 For the full mechanics of each tool above, read
 `references/orientation-toolkit.md`.
 
-### 3. Decide — commit to a hypothesis (often a test, not a bet-the-farm move)
+### 3. Decide - commit to a hypothesis (often a test, not a bet-the-farm move)
 
 Goal: choose the next action as the smallest, most reversible move that will
 either work or teach you something fast.
@@ -181,21 +245,21 @@ either work or teach you something fast.
 - Frame the decision as a **hypothesis**: "We believe X; if we do Y we expect Z."
 - Prefer **reversible, observable** moves. What's the cheapest action whose result
   will sharpen your orientation? Favor options that keep future options open.
-- State **what would falsify it** — the signal that tells you you're wrong — and
+- State **what would falsify it** - the signal that tells you you're wrong - and
   *when* you'll check.
 - **Skip vs. deliberate:** if this is familiar territory and your orientation is
   trustworthy, it's fine to act almost reflexively (implicit guidance). If the
   stakes are high or the situation is novel/complex, slow down and make the
   decision explicit. Knowing which mode you're in is itself a decision.
 
-### 4. Act — test reality, instrument the result, loop
+### 4. Act - test reality, instrument the result, loop
 
-- Take the action — but set it up so you can **see the outcome**. An action you
+- Take the action - but set it up so you can **see the outcome**. An action you
   can't observe the effect of is a wasted loop.
 - Decide *in advance* what observation will pull you back into the loop, and how
   soon. Then actually re-observe; don't fall in love with the plan.
 - In competitive settings, ask whether this action **changes the other party's
-  situation faster than they can re-orient** — see tempo, below.
+  situation faster than they can re-orient** - see tempo, below.
 
 ## Tempo and competition: operating inside the other loop
 
@@ -204,7 +268,7 @@ the aim is to make *their* orientation wrong. You do that by changing the
 situation in ways that are cheap for you and expensive for them to respond to
 ("fast transients" / asymmetric moves), and by being unpredictable enough that
 their model of you stays stale. The win condition is when they start reacting to
-a world that no longer exists — hesitating, thrashing, or fighting the last move.
+a world that no longer exists - hesitating, thrashing, or fighting the last move.
 
 Crucially, this is **not** a license to act hastily. Faster cycling only helps if
 each cycle is *better oriented* than theirs; a fast loop running on a wrong model
@@ -214,17 +278,17 @@ move is often to slow down, gather, and re-orient before re-engaging.
 Full treatment, with concrete patterns and examples, in
 `references/tempo-and-competition.md`.
 
-**Speed multipliers** — factors that accelerate the loop without degrading orientation:
+**Speed multipliers** - factors that accelerate the loop without degrading orientation:
 
 | Factor | Effect |
 |---|---|
 | Pre-planned responses (runbooks) | Skip D phase for known scenarios |
 | Distributed authority | Parallel loops at different levels simultaneously |
-| Sharp mental models | Faster Orient — pattern recognized, not built from scratch |
-| Good observability | Faster Observe — data already surfaced, not hunted |
-| Practice / drills | Faster Act — execution is muscle memory |
+| Sharp mental models | Faster Orient - pattern recognized, not built from scratch |
+| Good observability | Faster Observe - data already surfaced, not hunted |
+| Practice / drills | Faster Act - execution is muscle memory |
 
-**Speed killers** — where loops stall; diagnose and fix:
+**Speed killers** - where loops stall; diagnose and fix:
 
 | Failure | Symptom | Fix |
 |---|---|---|
@@ -238,7 +302,7 @@ Full treatment, with concrete patterns and examples, in
 ## The implicit-guidance shortcut (and its trap)
 
 Experts mostly run Observe → Orient → Act, with Decide bypassed: good orientation
-fires the right action directly, no deliberation. This is real and powerful — it's
+fires the right action directly, no deliberation. This is real and powerful - it's
 why masters seem fast. The trap is that the *same* shortcut, running on a
 biased or outdated orientation, produces confident, fast, wrong action. Rule of
 thumb: trust implicit guidance in familiar, stable, low-stakes situations; force
@@ -246,13 +310,13 @@ explicit orientation and decision when the situation is novel, the stakes are
 high, or you notice your predictions have been off lately.
 
 One additional trigger: if Orient produces a conclusion that conveniently
-confirms something you already built, already paid for, or already recommended
-— treat that as a yellow flag. Not proof of error, but reason to require one
+confirms something you already built, already paid for, or already recommended,
+treat that as a yellow flag. Not proof of error, but reason to require one
 concrete piece of evidence pointing the other way before closing the loop. The
 trap of implicit guidance is not just a stale mental model; it's a mental model
 shaped by your own prior investment.
 
-## Team OODA — parallel loops with model tiers
+## Team OODA - parallel loops with model tiers
 
 In multi-agent or team contexts, different roles run simultaneous loops rather
 than waiting for a single serial pass. Each loop is cheaper and faster than one
@@ -274,8 +338,10 @@ omnibus loop, and the results feed a coordination layer that re-orients everyone
 **Model selection rule of thumb:** Start at Haiku for any phase that is
 predominantly *retrieval or extraction*. Escalate to Sonnet when *synthesis or
 structured reasoning* is required. Escalate to Opus only when the phase involves
-*novel orientation, adversarial modeling, or irreversible decisions* — the places
-where a wrong model is expensive.
+*novel orientation, adversarial modeling, or irreversible decisions* - the places
+where a wrong model is expensive. (Model names date; the tiers do not. Read
+Haiku = fast tier, Sonnet = mid tier, Opus and the Mythos-class models above it
+= frontier tier, and substitute whatever currently occupies each tier.)
 
 **Shared orientation is the coordination contract.** Parallel loops only help if
 the results converge. After parallel Observe loops complete, a single Orient pass
@@ -284,9 +350,9 @@ Without this, parallel teams optimize against different pictures of reality.
 
 **Pre-planned responses** short-circuit the loop for known scenarios: the Observe
 agent pattern-matches to a runbook, Decide is skipped, Act fires directly. This
-is where Haiku shines — fast classification, low cost, high throughput.
+is where Haiku shines - fast classification, low cost, high throughput.
 
-## Fast mode (speed over certainty — without hallucinating)
+## Fast mode (speed over certainty - without hallucinating)
 
 Tempo is the whole point of OODA, so this skill ships a fast mode. Trigger it when
 the user says "fast/quick," when a window is closing, or when the call is small or
@@ -296,13 +362,15 @@ What fast mode does:
 
 - **One compressed pass.** A two-line Observe, a one-line Orient (your single best
   read plus the single most dangerous assumption), the smallest reversible Decide,
-  and Act. Skip the full toolkit.
+  and Act. Skip the full toolkit - but keep the three cheapest battery probes
+  (negative space, incentive scan, timeline anomaly), one line each. Cutting all
+  seven is how fast mode finds only what everyone else already found.
 - **Fewer inputs, chosen well.** Gather only the one or two observations that most
   change the answer; don't seek completeness.
 - **Bias to reversible moves.** When you're acting on thin information, prefer
-  actions you can walk back — that's what makes speed safe.
+  actions you can walk back - that's what makes speed safe.
 
-What fast mode never trades away — the anti-hallucination floor (this holds in
+What fast mode never trades away - the anti-hallucination floor (this holds in
 *every* mode):
 
 - **Don't invent facts, numbers, sources, or certainty.** Moving fast means
@@ -319,22 +387,22 @@ What fast mode never trades away — the anti-hallucination floor (this holds in
 
 Run this self-audit when a loop feels stuck or slow. All six should be true:
 
-1. **Observe:** Am I looking at the current actual state — not assumptions or 5-minute-old data?
-2. **Orient:** Have I named at least two genuinely different hypotheses — not one story plus strawmen?
-3. **Decide:** Is my decision actionable and time-bound — not "we should probably…"?
+1. **Observe:** Am I looking at the current actual state - not assumptions or 5-minute-old data?
+2. **Orient:** Have I named at least two genuinely different hypotheses - not one story plus strawmen?
+3. **Decide:** Is my decision actionable and time-bound - not "we should probably…"?
 4. **Act:** Will my action create an observable signal I can actually check?
-5. **Cycling:** Am I completing loops — or stuck in one phase?
-6. **Tempo:** Is my loop speed matched to the urgency — fast enough to matter, not so fast I'm acting on stale orientation?
+5. **Cycling:** Am I completing loops - or stuck in one phase?
+6. **Tempo:** Is my loop speed matched to the urgency - fast enough to matter, not so fast I'm acting on stale orientation?
 
 If any fails: stop, name which phase is stuck, apply the fix from the speed killers table above.
 
 ## Common misconceptions to avoid
 
-- "OODA just means be faster." No — it means be better-oriented and create
+- "OODA just means be faster." No - it means be better-oriented and create
   mismatches. Speed without orientation is dangerous.
-- "It's a strict sequence." No — the phases run concurrently and feed back;
+- "It's a strict sequence." No - the phases run concurrently and feed back;
   you're often observing and acting at once.
-- "Decide is the important step." No — Orient is. Decide is sometimes skipped
+- "Decide is the important step." No - Orient is. Decide is sometimes skipped
   entirely.
 - "It's about individual snap decisions." Boyd cared most about *organizations*:
   shared orientation and mutual trust are what let a team act fast without
@@ -355,6 +423,7 @@ SITUATION (Observe)
 ORIENTATION (Orient)
 - Current read of what's going on
 - 2–3 competing hypotheses + the evidence that would separate them
+- Non-obvious findings (battery output), ranked by impact × confidence
 - Premortem: top ways this goes wrong
 - Most dangerous assumption to be wrong about
 - Situation type (clear / complicated / complex / chaotic) → loop style
@@ -378,7 +447,7 @@ price.*
 
 - **Observe:** Win rate down 15% this quarter; losses cluster in mid-market;
   sales says "they're cheaper." Freshness gap: no one has read the actual lost-deal
-  notes — that's a cheap thing to go check.
+  notes - that's a cheap thing to go check.
 - **Orient:** Naming the orientation: "we're losing on price." Competing
   hypotheses: (a) price; (b) the competitor's faster onboarding; (c) a missing
   integration. Evidence that separates them lives in the lost-deal notes and a few
@@ -402,25 +471,30 @@ an unexamined orientation. One cheap orientation step changed the move.
 This is the core framework; two companions extend it and are worth invoking
 together on hard, multi-step work:
 
-- **`ooda-skill-orchestrator`** — keeps you aware of the skills and tools you
+- **`ooda-skill-orchestrator`** - keeps you aware of the skills and tools you
   actually have at each phase, picks the best-fit one, and offers to research and
   build a new skill when a real capability gap is slowing the loop. Use it to bring
   the right capability to Observe/Orient/Decide/Act.
-- **`ooda-find-fix-finish`** — an execution discipline for the **Act** phase
+- **`ooda-find-fix-finish`** - an execution discipline for the **Act** phase
   (Find → Fix → Finish → Exploit/Analyze/Disseminate). Hand off to it once Decide
   has chosen the move, to execute precisely and turn the result into learning that
   re-enters this loop.
 
 ## Reference files
 
-- `references/orientation-toolkit.md` — the working tools for the Orient phase:
+- `references/orientation-toolkit.md` - the working tools for the Orient phase:
   competing hypotheses, premortem, red-teaming, Bayesian updating, destruction &
   creation, and the Cynefin situation-match. Read this when you're doing a serious
   orientation pass.
-- `references/tempo-and-competition.md` — operating inside another's loop,
+- `references/non-obvious-toolkit.md` - the seven-probe battery for surfacing
+  non-obvious, high-impact findings (negative space, outside view, inversion,
+  second-order, incentive scan, constraint flip, timeline anomaly), with the
+  mechanics, worked examples, and the impact-ranking discipline. Read when the
+  obvious answer feels too easy or the stakes justify a deep pass.
+- `references/tempo-and-competition.md` - operating inside another's loop,
   generating mismatches/fast transients, and when speed helps vs. hurts. Read for
   competitive or adversarial problems.
-- `references/theory-and-sources.md` — Boyd's real loop diagram (every component,
+- `references/theory-and-sources.md` - Boyd's real loop diagram (every component,
   the implicit-guidance and feedback links), the organizational ideas, the
   misconceptions, and full citations. Read when you want the grounding or to teach
   it.
