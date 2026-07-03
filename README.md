@@ -7,6 +7,18 @@
 
 ---
 
+## Where this is best used
+
+These skills earn their keep when the right answer is not obvious, the situation keeps moving while you decide, and a wrong mental model would be expensive. If the answer is known and only execution remains, skip the loop and just do the work. Reach for the suite when the problem looks like one of these:
+
+1. **A live incident or fast-moving disruption.** Something is broken or degrading right now - a production outage, a supply interruption, a deal collapsing - and the obvious explanation arrived with the alarm. The loop keeps you from executing efficiently against the wrong diagnosis: parallel observation gets current facts fast, the non-obvious battery checks what the first story conveniently leaves out, and find-fix-finish turns each corrective action into intelligence for the next cycle.
+
+2. **A competitive or adversarial move.** A rival cut prices, a counterparty changed terms, a negotiation stalled. Here the win condition is mismatch, not speed - acting in ways that make the other side's picture of reality wrong while yours stays current. The tempo and second-order tools ask the questions that matter: what does this move cost them to counter, who reacts one step later, and whose story benefits from being believed?
+
+3. **A stalled or sideways situation with a comfortable explanation.** Sales are down "because of price," the project slipped "because of scope," the metric moved "because of the market." Everyone agrees, and that agreement is the problem. The battery hunts what the consensus missed - the signal that should be there and isn't, the thing that changed just before the trouble started, the constraint everyone treats as fixed that is actually a choice.
+
+---
+
 ## Orientation
 
 Most people misread the loop.
